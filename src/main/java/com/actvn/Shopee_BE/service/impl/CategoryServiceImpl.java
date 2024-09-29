@@ -57,6 +57,7 @@ public class CategoryServiceImpl implements CategoryService {
     public ApiResponse getCategoryById(String id) {
         Category foundCategory = categoryRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Category with "+id+" not found"));
+
         return ApiResponse.builder()
                 .status(HttpStatus.OK)
                 .message("Get category with "+id +" successfully")
